@@ -1,0 +1,30 @@
+<aura:component controller="AccountController">
+    <!-- attributes -->
+    <aura:attribute name="accounts" type="Account[]"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="newRecordCounter" type="Integer" />
+    <aura:attribute name="sortDirection" type="String" default="asc" />
+    <aura:attribute name="defaultSortDirection" type="String" default="asc" />
+    <aura:attribute name="sortedBy" type="String" />
+    <aura:attribute name="parent" type="Aura.Component"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}" />
+
+    <lightning:notificationsLibrary aura:id="deleteNotifyId"/>
+    <div class="slds-card__body slds-card__body_inner">
+        <!-- the container element determine the height of the datatable -->
+        <div style="height: 300px">
+            <lightning:datatable
+                                 keyField="id"
+                                 data="{!v.accounts}"
+                                 columns="{! v.columns }"
+                                 hideCheckboxColumn="true"
+                                 showRowNumberColumn="true"
+                                 onrowaction="{! c.handleRowAction }"
+                                 defaultSortDirection="{!v.defaultSortDirection}"
+                                 sortedDirection="{!v.sortDirection}"
+                                 sortedBy="{!v.sortedBy}"
+                                 onsort="{!c.handleSort}"/>
+        </div>
+    </div>
+</aura:component>

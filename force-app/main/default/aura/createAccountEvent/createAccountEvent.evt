@@ -1,0 +1,7 @@
+<aura:event type="APPLICATION" description="Event template" >
+	<aura:attribute name="didCreateAccount" type="boolean"/>
+	<aura:attribute name="Name" type="String"/>
+	<aura:attribute name="Phone" type="String"/>
+	<aura:attribute name="Type" type="String"/>
+	<aura:attribute name="Industry" type="String"/>
+</aura:event>

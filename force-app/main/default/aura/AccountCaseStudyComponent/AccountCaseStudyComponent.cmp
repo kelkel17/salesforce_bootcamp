@@ -1,0 +1,21 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" access="global" controller="AccountController">
+    <aura:attribute name="accounts" type="Account[]"/>
+    <aura:attribute name="accountContainer" type="Account[]"/>
+    <aura:attribute name="newRecordCounter" type="Integer" default="0"/>
+
+    <aura:handler name="searchEvent" event="c:searchAccountEvent" action="{! c.handleSearchEvent }" />
+    <aura:handler event="c:createAccountEvent" action="{! c.handleCreateAccountEvent }"/>
+    <aura:handler name="init" value="{! this }" action="{! c.onInit }" />
+    <lightning:notificationsLibrary aura:id="notifyId"/>
+
+    <aura:method name="resetCounter" action="{! c.resetCounter }" access="public">
+        <aura:attribute name="reset" type="Integer" default="0"/>
+        <aura:attribute name="refresh" type="boolean" default="false"/>
+    </aura:method>
+
+    <article class="slds-card">
+        <c:AccountCaseStudyHeader />
+        <c:AccountCaseStudyBody parent="{! this }" newRecordCounter="{! v.newRecordCounter }" accounts="{! v.accounts }" />
+    </article>
+    <c:AccountCaseStudyFooter parent="{! this }" newRecordCounter="{! v.newRecordCounter }" accountContainer="{! v.accountContainer }" accounts="{! v.accounts }" />
+</aura:component>

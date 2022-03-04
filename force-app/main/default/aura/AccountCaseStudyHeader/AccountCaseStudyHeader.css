@@ -1,0 +1,32 @@
+.THIS {
+}
+
+.THIS .justify-content-end {
+    justify-content: end;
+}
+
+.THIS .slds-size_1-of-2 {
+    display: flex;
+    align-items: center;
+}
+
+.THIS .slds-size_1-of-2 .slds-form-element__label.slds-no-flex {
+    display: none;
+}
+
+.THIS .slds-size_1-of-2 .slds-form-element .slds-form-element__control .slds-input__icon_left {
+    display: none;
+}
+
+.THIS .slds-size_1-of-2 .slds-form-element .slds-form-element__control input[type=search] {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.THIS .slds-size_1-of-2 .slds-button_brand {
+    margin-left: 1rem;
+}
+
+.THIS .slds-size_1-of-2 .slds-card__header-title a {
+    font-weight: bold;
+}

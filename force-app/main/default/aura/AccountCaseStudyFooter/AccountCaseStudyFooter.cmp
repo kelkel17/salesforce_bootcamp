@@ -1,0 +1,25 @@
+<aura:component controller="AccountController">
+    <aura:attribute name="accounts" type="Account[]"/>
+    <aura:attribute name="accountContainer" type="Account[]"/>
+    <aura:attribute name="newRecordCounter" type="Integer" />
+    <aura:attribute name="isDisabled" type="boolean" default="true" />
+    <aura:attribute name="parent" type="Aura.Component"/>
+
+    <lightning:notificationsLibrary aura:id="saveAllRecordId"/>
+    <aura:handler name="change" value="{! v.newRecordCounter }" action="{! c.handleValueChange }"/>
+
+    <div class="slds-p-around_medium ">
+        <lightning:button
+            label="Refresh Table"
+            title="Refresh Table"
+            onclick="{! c.refreshTable }"
+        />
+        <lightning:button
+            variant="brand"
+            label="Save All"
+            title="Save all action"
+            onclick="{! c.saveAllRecords }"
+            disabled="{! v.isDisabled }"
+        />
+    </div>
+</aura:component>
